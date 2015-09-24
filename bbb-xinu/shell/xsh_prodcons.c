@@ -1,4 +1,4 @@
-#include <prodcons.h>
+#include "prodcons.h"
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
@@ -45,9 +45,12 @@ shellcmd xsh_prodcons(int nargs, char *args[])
 		}
 		int num = atoi(args[1]);
 		count = num;
-		return 0;
 	}
 		
 		
-	printf("count is %d",count);	
+	printf("count is %d\n",count);
+	resume( create(producer, 1024, 20, "producer", 1, count) );
+      	resume( create(consumer, 1024, 20, "consumer", 1, count) );	
+	return 0;
+
 }

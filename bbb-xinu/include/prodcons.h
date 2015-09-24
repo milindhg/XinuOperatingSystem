@@ -6,3 +6,5 @@
 extern int n;
 
 /* function prototype */
+void consumer(int count);
+void producer(int count);
