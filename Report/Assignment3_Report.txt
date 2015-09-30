@@ -1,0 +1,13 @@
+Assignment 3
+
+> How exactly is sychronization achieved using semaphore in our assignnment?
+The synchronization is achieved using 2 semaphores in the assignment. The semaphore consists of integer value using which it is initialized. There are certain processes waiting on the semaphore. The two processes producer and consumer are waiting on the semaphores produced and consumed respectively. When the producer is about to update the value of the global shared resource, begins with a count of 1, wait will not block the first time it is called in cons2. So, the consumer is free to print the initial value of n.
+However, semaphore consumed begins with a count of 0, so the first call to wait in prod2 blocks. In effect, the producer waits for semaphore consumed before incrementing n to guarantee that the consumer has printed it. When the example executes, the producer and consumer coordinate, and the consumer prints all values of n from 0 through 1999.
+
+> Can the above sychronization be achieved with just one semphore? Why or why not?
+The synchronization cannot be achieved by just one semaphore since two semaphores are required to alternately signal and wait on each other. If there is only one semaphore, then all the processes will wait on that semaphore and the processor can be waiting forever.
+
+Group Members: 
+Milind Gokhale - Programming the producer consumer command and producer 
+Renuka Deshmukh - Programming the producer consumer command and producer
+
