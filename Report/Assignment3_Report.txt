@@ -8,6 +8,6 @@ However, semaphore consumed begins with a count of 0, so the first call to wait 
 The synchronization cannot be achieved by just one semaphore since two semaphores are required to alternately signal and wait on each other. If there is only one semaphore, then all the processes will wait on that semaphore and the processor can be waiting forever.
 
 Group Members: 
-Milind Gokhale - Programming the producer consumer command and producer 
-Renuka Deshmukh - Programming the producer consumer command and producer
+Milind Gokhale - Programming the producer consumer command and research on using sid32 instead of semaphore. 
+Renuka Deshmukh - Programming the producer consumer command and troubleshooting semaphore header and type error.
 
