@@ -6,10 +6,13 @@
 /* Global variable definition */
 int n;
 
+/**definition of global semaphore*/
+sid32 produced, consumed;
+
 shellcmd xsh_prodcons(int nargs, char *args[])
 {
 	int count = 2000;
-	
+
 	/* Output info for '--help' argument */
 
 	if (nargs == 2 && strncmp(args[1], "--help", 7) == 0) {
@@ -21,7 +24,7 @@ shellcmd xsh_prodcons(int nargs, char *args[])
 		printf("\t--help\tdisplay this help and exit\n");
 		return 0;
 	}
-	
+
 	/* Check argument count */
 
 	if (nargs > 2) {
@@ -46,8 +49,11 @@ shellcmd xsh_prodcons(int nargs, char *args[])
 		int num = atoi(args[1]);
 		count = num;
 	}
-		
-		
+	
+	/*initialize semaphores*/	
+	consumed = semcreate(0);
+	produced = semcreate(1);	
+	
 	printf("count is %d\n",count);
 	resume( create(producer, 1024, 20, "producer", 1, count) );
       	resume( create(consumer, 1024, 20, "consumer", 1, count) );	
