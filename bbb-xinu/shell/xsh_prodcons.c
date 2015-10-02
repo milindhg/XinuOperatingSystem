@@ -51,8 +51,8 @@ shellcmd xsh_prodcons(int nargs, char *args[])
 	}
 	
 	/*initialize semaphores*/	
-	consumed = semcreate(0);
-	produced = semcreate(1);	
+	consumed = semcreate(1);
+	produced = semcreate(0);	
 	
 	printf("count is %d\n",count);
 	resume( create(producer, 1024, 20, "producer", 1, count) );

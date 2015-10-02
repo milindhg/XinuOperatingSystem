@@ -2,7 +2,7 @@
 
 void producer(int count)
 {
-      n = 0;
+      //n = 0;
 	  while(n <= count)
 	  {
 		  printf("produced : %d\n",n);
