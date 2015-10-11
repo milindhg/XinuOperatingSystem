@@ -1,0 +1,15 @@
+Assignment 4
+
+>Functions in the project
+future_alloc() function used to allocate the memory to new future. The future is set to the FUTURE_EMPTY state when memoery is allocated. For this getmem syscall is used for implementation.
+future_free() function used to free up the space used by the future. For this the freemem syscall is used for implementation.
+future_get() function used to get the future value set in the future. For this when the value is not set in the future but get is called, then getpid syscall is used to get the pid of the calling process and suspend it and so the process is blocked.
+future_set() function used to set the value to be set in future. If any calling process is blocked by during the future_get call, then during the future_set call, the blocked process resumes.
+Only the flag FUTURE_EXCLUSIVE is used in this assignment.
+All the three states namely the FUTURE_EMPTY, FUTURE_WAITING, FUTURE_VALID states are taken care of in the future get and set calls.
+
+
+Group Members: 
+Milind Gokhale - Programming the future_get and future_alloc functions and interrupt masking of future.
+Renuka Deshmukh - Programming the future_set and future_free functions of future.
+
