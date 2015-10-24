@@ -1,0 +1,25 @@
+Assignment 5
+
+>Functions in the project
+future_alloc() function used to allocate the memory to new future. The future is set to the FUTURE_EMPTY state when memoery is allocated. For this getmem syscall is used for implementation.
+future_free() function used to free up the space used by the future. For this the freemem syscall is used for implementation. The functionality to free the queue is also implemented.
+future_get() function used to get the future value set in the future. For this when the value is not set in the future but get is called, then getpid syscall is used to get the pid of the calling process and suspend it and so the process is blocked.
+future_set() function used to set the value to be set in future. If any calling process is blocked by during the future_get call, then during the future_set call, the blocked process resumes.
+The queue implementation includes methods for creating queue, enqueue, dequeue and check whether queue is empty.
+queue *create_queue(int);
+int deQueue(queue *);
+int is_empty(queue *);
+void enQueue(queue *, int);
+
+This time there are 3 flags or modes implemented as EXCLUSIVE, SHARED and QUEUE which have the future logic as given in the assignment problem.
+In SHARED MODE: One-to-many relationship between the future_set() and future_get(). 
+In QUEUE MODE: Many-to-many relationship between the future_set() and future_get().
+There are queues implemented to hold the producer and consumers as set_queue and get_queue.
+Both cases of the FUTURE_QUEUE when the thread is calling future_set and future_get are implemented.
+All the three states namely the FUTURE_EMPTY, FUTURE_WAITING, FUTURE_VALID states are taken care of in the future get and set calls.
+
+
+Group Members: 
+Milind Gokhale - Programming the future_get and future_alloc functions and interrupt masking of future and queue implementation.
+Renuka Deshmukh - Programming the future_set and future_free functions of future.
+
