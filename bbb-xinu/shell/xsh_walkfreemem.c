@@ -1,14 +1,14 @@
-/* xsh_hello.c - xsh_hello */
+/* xsh_walkfreemem.c - xsh_walkfreemem */
 
 #include <xinu.h>
 #include <string.h>
 #include <stdio.h>
 
 /*------------------------------------------------------------------------
- * xsh_hello - obtain username and print welcome message 
+ * xsh_walkfreemem - obtain username and print welcome message 
  *------------------------------------------------------------------------
  */
-shellcmd xsh_hello(int nargs, char *args[]) {
+shellcmd xsh_walkfreemem(int nargs, char *args[]) {
 
 	/* Output info for '--help' argument */
 
@@ -30,18 +30,19 @@ shellcmd xsh_hello(int nargs, char *args[]) {
 	}
 
 	if (nargs == 1) {
-		printf("Printing free memoery block addresses and sizes respectively. ");
+		printf("Printing free memory block addresses and sizes respectively. \n");
 		intmask	mask;			/* Saved interrupt mask		*/
 		struct	memblk	*prev, *curr;
 		mask = disable();
 		curr = memlist.mnext;
-		while(curr!=null)
+		while(curr!=NULL)
 		{
-			printf("Address: %p", &curr);
-			printf("Length: %d", curr.mlength);
+			printf("Address: %d", curr);
+			printf("\tLength: %d", curr->mlength);
 			printf("\n");
-			curr = curr.mnext;
+			curr = curr->mnext;
 		}
+		restore(mask);		
 		return 0;
 	}
 	
