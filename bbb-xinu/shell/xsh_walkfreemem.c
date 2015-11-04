@@ -37,8 +37,9 @@ shellcmd xsh_walkfreemem(int nargs, char *args[]) {
 		curr = memlist.mnext;
 		while(curr!=NULL)
 		{
-			printf("Address: %d", curr);
-			printf("\tLength: %d", curr->mlength);
+			printf("Address: (0x%08x)", curr);
+			//printf("%10d bytes (0x%08x) of Xinu code\n", code, code);M
+			printf("\tLength: %10d bytes", curr->mlength);
 			printf("\n");
 			curr = curr->mnext;
 		}
