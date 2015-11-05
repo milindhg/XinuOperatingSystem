@@ -84,3 +84,6 @@ extern  shellcmd  xsh_prodcons     (int32, char *[]);
 
 /* in file xsh_walkfreemem.c */
 extern  shellcmd  xsh_walkfreemem     (int32, char *[]);
+
+/* in file xsh_getmaxstklen.c */
+extern  shellcmd  xsh_getmaxstklen     (int32, char *[]);
