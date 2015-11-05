@@ -5,7 +5,9 @@
 #include <stdio.h>
 
 /*------------------------------------------------------------------------
- * xsh_getmaxstklen - obtain username and print welcome message 
+ * xsh_getmaxstklen - obtain username and print welcome message
+ * //program introduced to print the maximum stack space used by the process - assignment 6 Text problem 9.7
+
  *------------------------------------------------------------------------
  */
 int factorial(int num)
@@ -34,7 +36,7 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 
 	/* Check argument count */
 
-	if (nargs > 1) {
+if (nargs > 1) {
 		fprintf(stderr, "%s: too many arguments\n", args[0]);
 		fprintf(stderr, "Try '%s --help' for more information\n",
 			args[0]);

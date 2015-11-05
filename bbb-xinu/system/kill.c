@@ -29,7 +29,16 @@ syscall	kill(
 	for (i=0; i<3; i++) {
 		close(prptr->prdesc[i]);
 	}
-	freestk(prptr->prstkbase, prptr->prstklen);
+	
+	//if condition introduced to avoid freeing stack space for process consumememory - assignment 6 Text problem 9.4
+	if(prptr->nofreestkflag==1)
+	{
+		//dont call freestk
+	}
+	else
+	{
+		freestk(prptr->prstkbase, prptr->prstklen);
+	}
 
 	switch (prptr->prstate) {
 	case PR_CURR:

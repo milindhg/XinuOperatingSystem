@@ -6,6 +6,7 @@
 
 /*------------------------------------------------------------------------
  * xsh_consumemory - consume memory but not release it 
+ * //program introduced to avoid freeing stack space for process consumememory - assignment 6 Text problem 9.4
  *------------------------------------------------------------------------
  */
 shellcmd xsh_consumemory(int nargs, char *args[]) {
@@ -33,7 +34,10 @@ shellcmd xsh_consumemory(int nargs, char *args[]) {
 		printf("Printing free memory block addresses and sizes respectively. \n");
 		intmask	mask;			/* Saved interrupt mask		*/
 		mask = disable();
-		char *value = (char)getmem(sizeof(char)*100);
+		pid32 mypid = getpid();
+		struct procent myproc = proctab[mypid];
+		myproc.nofreestkflag = 1;
+		char *value = (char)getmemory(sizeof(char));
 		restore(mask);		
 		return 0;
 	}

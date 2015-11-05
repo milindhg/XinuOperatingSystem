@@ -51,7 +51,7 @@ struct procent {		/* Entry in the process table		*/
 	pid32	prparent;	/* ID of the creating process		*/
 	umsg32	prmsg;		/* Message sent to this process		*/
 	bool8	prhasmsg;	/* Nonzero iff msg is valid		*/
-	uint32  prstkmaxlen; //new attribute introduced for xinu text problem 9.7
+	uint32  nofreestkflag; //	//new attribute introduced to avoid freeing stack space for process consumememory - assignment 6 Text problem 9.4
 	int16	prdesc[NDESC];	/* Device descriptors for process	*/
 };
 

@@ -120,6 +120,9 @@ extern	pid32	getfirst(qid16);
 /* in file getmem.c */
 extern	char	*getmem(uint32);
 
+/* in file getmem.c */
+extern	char	*getmemory(uint32);
+
 /* in file getpid.c */
 extern	pid32	getpid(void);
 
