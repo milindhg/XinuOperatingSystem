@@ -46,16 +46,17 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		pid32 mypid = getpid();
 		struct procent myproc = proctab[mypid];
 		char *mystkbase = myproc.prstkbase;
-		char *mystkptr = myproc.prstkptr;
+		char *mystkptr;
+		mystkptr = myproc.prstkptr;
 		uint32 mystklen = myproc.prstklen;
 		char *start,*end;
 		start=mystkptr;
-		end = mystkbase + mystklen;
+		end = mystkbase - mystklen;
 		while(start>end)
 		{
 			start--;
 			*start = 0xFFFFFFFF;
-			kprintf("Setting FFFFFF");
+			kprintf("Setting FFFFFF\n");
 		}
 		
 		factorial(5);
