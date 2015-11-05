@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 /*------------------------------------------------------------------------
- * xsh_hello - obtain username and print welcome message 
+ * xsh_getmaxstklen - obtain username and print welcome message 
  *------------------------------------------------------------------------
  */
 int factorial(int num)
@@ -43,7 +43,6 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 
 
 	if (nargs == 1) {
-		printf("hello %s, Welcome to the world of Xinu!!\n", args[1]);	
 		pid32 mypid = getpid();
 		struct procent myproc = proctab[mypid];
 		char *mystkbase = myproc.prstkbase;
@@ -69,7 +68,10 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		}
 		
 		uint32 maxstklen = mystklen - i;
-		printf("The maximum stack space used by the process is: %d", maxstklen);
+		kprintf("The maximum stack space used by the process is: %d", maxstklen);
+		kprintf("The mystklen is: %d", mystklen);
+		kprintf("i is: %d", i);
+		
 		return 0;
 	}
 	
