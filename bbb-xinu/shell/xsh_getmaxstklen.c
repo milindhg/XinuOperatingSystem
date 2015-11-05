@@ -55,6 +55,7 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		{
 			start--;
 			*start = 0xFFFFFFFF;
+			kprintf("Setting FFFFFF");
 		}
 		
 		factorial(5);
@@ -63,6 +64,7 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		uint32 i=0;
 		while(*trav==0xFFFFFFFF)
 		{
+			kprintf("Got FFFFFF!!!");
 			trav++;
 			i++;
 		}
