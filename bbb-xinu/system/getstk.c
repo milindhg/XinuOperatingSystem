@@ -46,6 +46,17 @@ char  	*getstk(
 		fits->mlength -= nbytes;
 		fits = (struct memblk *)((uint32)fits + fits->mlength);
 	}
+	
+	/*
+	int i=0;
+	struct	memblk	*trav;
+	trav=fits;
+	while(i<nbytes)
+	{
+		trav
+	}
+	*/
+	
 	memlist.mlength -= nbytes;
 	restore(mask);
 	return (char *)((uint32) fits + nbytes - sizeof(uint32));
