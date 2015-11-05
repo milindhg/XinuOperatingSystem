@@ -33,7 +33,7 @@ shellcmd xsh_consumemory(int nargs, char *args[]) {
 		printf("Printing free memory block addresses and sizes respectively. \n");
 		intmask	mask;			/* Saved interrupt mask		*/
 		mask = disable();
-		char *value = (char)getmem(sizeof(char*100));
+		char *value = (char)getmem(sizeof(char)*100);
 		restore(mask);		
 		return 0;
 	}
