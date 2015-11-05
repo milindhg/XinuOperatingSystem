@@ -53,7 +53,7 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		end = mystkbase + mystklen;
 		while(start<end)
 		{
-			start++;
+			start--;
 			*start = 0xFFFFFFFF;
 		}
 		
@@ -63,7 +63,7 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		uint32 i=0;
 		while(*trav==0xFFFFFFFF)
 		{
-			trav--;
+			trav++;
 			i++;
 		}
 		
