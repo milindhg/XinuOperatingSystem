@@ -43,6 +43,8 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 
 
 	if (nargs == 1) {
+		intmask	mask;			/* Saved interrupt mask		*/
+		mask = disable();
 		pid32 mypid = getpid();
 		struct procent myproc = proctab[mypid];
 		char *mystkbase = myproc.prstkbase;
@@ -82,7 +84,7 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		kprintf("The maximum stack space used by the process is: %d bytes\n", maxstklen);
 		//kprintf("The mystklen is: %d \n", mystklen);
 		//kprintf("i is: %d \n", i);
-		
+		restore(mask);
 		return 0;
 	}
 	

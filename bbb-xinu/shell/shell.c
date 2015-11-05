@@ -33,6 +33,7 @@ const	struct	cmdent	cmdtab[] = {
 	{"reset",	FALSE,	xsh_reset},
 	{"prodcons",	FALSE,	xsh_prodcons},
 	{"walkfreemem",	FALSE,	xsh_walkfreemem},
+	{"consumememory",	FALSE, xsh_consumemory},
 	{"getmaxstklen",	FALSE,	xsh_getmaxstklen}
 };
 
