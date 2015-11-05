@@ -56,32 +56,32 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		{
 			start--;
 			*start = 'F';
-			kprintf("Setting FFFFFF\n");
+			//kprintf("Setting FFFFFF\n");
 		}
-		kprintf("end is: %d \n", end);
-		kprintf("end value is: 0x%08x \n", *end);
-		kprintf("end value is: %d \n", *end);
-		kprintf("end value is: %d \n", *(end+1));
+		//kprintf("end is: %d \n", end);
+		//kprintf("end value is: 0x%08x \n", *end);
+		//kprintf("end value is: %d \n", *end);
+		//kprintf("end value is: %d \n", *(end+1));
 		
 		factorial(5);
 		char *trav;
 		trav = end;
 		uint32 i=0;
-		kprintf("trav is: %d \n", trav);
-		kprintf("trav value is: 0x%08x \n", *trav);
-		kprintf("trav value is: %d \n", *trav);
-		kprintf("trav value is: %d \n", *(trav+1));
+		//kprintf("trav is: %d \n", trav);
+		//kprintf("trav value is: 0x%08x \n", *trav);
+		//kprintf("trav value is: %d \n", *trav);
+		//kprintf("trav value is: %d \n", *(trav+1));
 		while(*trav=='F')
 		{
-			kprintf("Got FFFFFF!!! \n");
+			//kprintf("Got FFFFFF!!! \n");
 			trav++;
 			i++;
 		}
 		
 		uint32 maxstklen = mystklen - i;
-		kprintf("The maximum stack space used by the process is: %d \n", maxstklen);
-		kprintf("The mystklen is: %d \n", mystklen);
-		kprintf("i is: %d \n", i);
+		kprintf("The maximum stack space used by the process is: %d bytes\n", maxstklen);
+		//kprintf("The mystklen is: %d \n", mystklen);
+		//kprintf("i is: %d \n", i);
 		
 		return 0;
 	}
