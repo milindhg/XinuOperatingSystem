@@ -55,17 +55,23 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		while(start>end)
 		{
 			start--;
-			*start = 0xFFFFFFFF;
+			*start = 'F';
 			kprintf("Setting FFFFFF\n");
 		}
 		kprintf("end is: %d \n", end);
 		kprintf("end value is: 0x%08x \n", *end);
+		kprintf("end value is: %d \n", *end);
+		kprintf("end value is: %d \n", *(end+1));
 		
 		factorial(5);
 		char *trav;
 		trav = end;
 		uint32 i=0;
-		while(*trav==0xFFFFFFFF)
+		kprintf("trav is: %d \n", trav);
+		kprintf("trav value is: 0x%08x \n", *trav);
+		kprintf("trav value is: %d \n", *trav);
+		kprintf("trav value is: %d \n", *(trav+1));
+		while(*trav=='F')
 		{
 			kprintf("Got FFFFFF!!! \n");
 			trav++;
