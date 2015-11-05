@@ -58,6 +58,8 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 			*start = 0xFFFFFFFF;
 			kprintf("Setting FFFFFF\n");
 		}
+		kprintf("end is: %d \n", end);
+		kprintf("end value is: 0x%08x \n", *end);
 		
 		factorial(5);
 		char *trav;
@@ -65,15 +67,15 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		uint32 i=0;
 		while(*trav==0xFFFFFFFF)
 		{
-			kprintf("Got FFFFFF!!!");
+			kprintf("Got FFFFFF!!! \n");
 			trav++;
 			i++;
 		}
 		
 		uint32 maxstklen = mystklen - i;
-		kprintf("The maximum stack space used by the process is: %d", maxstklen);
-		kprintf("The mystklen is: %d", mystklen);
-		kprintf("i is: %d", i);
+		kprintf("The maximum stack space used by the process is: %d \n", maxstklen);
+		kprintf("The mystklen is: %d \n", mystklen);
+		kprintf("i is: %d \n", i);
 		
 		return 0;
 	}

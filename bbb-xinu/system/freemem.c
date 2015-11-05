@@ -46,28 +46,26 @@ syscall	freemem(
 		return SYSERR;
 	}
 
-	//commenting for xinu text problem 9.4
-	//memlist.mlength += nbytes;
+	memlist.mlength += nbytes;
 
 	/* Either coalesce with previous block or add to free list */
 
-	//commenting for xinu text problem 9.4	
-	//if (top == (uint32) block) { 	/* Coalesce with previous block	*/
-	//	prev->mlength += nbytes;
-	//	block = prev;
-	//} else {			/* Link into list as new node	*/
-	//	block->mnext = next;
-	//	block->mlength = nbytes;
-	//	prev->mnext = block;
-	//}
+	if (top == (uint32) block) { 	/* Coalesce with previous block	*/
+		prev->mlength += nbytes;
+		block = prev;
+	} else {			/* Link into list as new node	*/
+		block->mnext = next;
+		block->mlength = nbytes;
+		prev->mnext = block;
+	}
 
 	/* Coalesce with next block if adjacent */
 
-	//commenting for xinu text problem 9.4
-	//if (((uint32) block + block->mlength) == (uint32) next) {
-	//	block->mlength += next->mlength;
-	//	block->mnext = next->mnext;
-	//}
+	if (((uint32) block + block->mlength) == (uint32) next) {
+		block->mlength += next->mlength;
+		block->mnext = next->mnext;
+	}
+
 	restore(mask);
 	return OK;
 }
