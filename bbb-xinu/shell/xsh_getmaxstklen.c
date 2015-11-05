@@ -63,7 +63,7 @@ shellcmd xsh_getmaxstklen(int nargs, char *args[]) {
 		//kprintf("end value is: %d \n", *end);
 		//kprintf("end value is: %d \n", *(end+1));
 		
-		factorial(5);
+		factorial(100);
 		char *trav;
 		trav = end;
 		uint32 i=0;
