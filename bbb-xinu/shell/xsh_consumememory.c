@@ -31,14 +31,13 @@ shellcmd xsh_consumemory(int nargs, char *args[]) {
 	}
 
 	if (nargs == 1) {
-		printf("Printing free memory block addresses and sizes respectively. \n");
 		intmask	mask;			/* Saved interrupt mask		*/
 		mask = disable();
 		pid32 mypid = getpid();
 		struct procent myproc = proctab[mypid];
 		myproc.nofreestkflag = 1;
 		char *value = (char)getmemory(sizeof(char));
-		kprintf("consumed memory");
+		kprintf("consumed memory\n");
 		restore(mask);		
 		return 0;
 	}
