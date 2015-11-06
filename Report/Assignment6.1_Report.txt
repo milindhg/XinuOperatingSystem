@@ -3,6 +3,11 @@ Assignment 6.1
 >Problem 9.1:
 Write a function that walks the list of free memory blocks and prints a line with the address and length of each block.
 
+Code Files
+1. bbb-xinu/include/shprototypes.h
+2. bbb-xinu/shell/shell.c
+3. bbb-xinu/shell/xsh_walkfreemem.c
+
 We write a new shell command called walkfreemem.
 In this function we traverse through the memlist and print each free block's address and length.
 We use a traversal pointer of type memblk called curr to traverse through the memlist and the attribute mlength to print the lenght of free block while we use the attribute mnext to move to the next free block.

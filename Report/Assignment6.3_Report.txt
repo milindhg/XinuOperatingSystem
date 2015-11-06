@@ -3,6 +3,11 @@ Assignment 6.3
 >Problem 9.7
 Many embedded systems go through a prototype stage, in which the system is built on a general platform, and a final stage, in which minimal hardware is designed for the system. In terms of memory management, one question concerns the size of the stack needed by each process. Modify the code to allow the system to measure the maximum stack space used by a process and report the maximum stack size when the process exits.
 
+Code Files:
+1. bbb-xinu/include/shprototypes.h
+2. bbb-xinu/shell/shell.c
+3. bbb-xinu/shell/xsh_getmaxstklen.c
+
 We define a new shell command called getmaxstklen to print the maximum stack size consumed by the process.
 Here immediately after the process stack is allocated, we write character F in all the empty slots in the stack from prstkptr to the end of stack.
 Then we call a custom recursive function (factorial) to the depth of about 100 to let the stack be used and filled with some data.

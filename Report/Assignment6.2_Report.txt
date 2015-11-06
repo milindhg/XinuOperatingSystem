@@ -3,6 +3,17 @@ Assignment 6.2
 >Problem 9.4
 Replace the low-level memory management functions with a set of functions that allocate heap and stack memory permanently (i.e., without providing a mechanism to return storage to a free list). How do the sizes of the new allocation routines compare to the sizes of getstk and getmem?
 
+Code Files:
+1. bbb-xinu/include/process.h
+2. bbb-xinu/include/prototypes.h
+3. bbb-xinu/include/shprototypes.h
+4. bbb-xinu/shell/shell.c
+5. bbb-xinu/shell/xsh_consumememory.c
+6. bbb-xinu/system/create.c
+7. bbb-xinu/system/getmemory.c
+8. bbb-xinu/system/getstack.c
+9. bbb-xinu/system/kill.c
+
 We define a new system calls one called getmemory - which will only allocate memory but not pass the handler which can be used to free up the memory allocated by getmemory and another called getstack which will allocate memory for the process stack.
 We also define a new shell command called consumememory to demonstrate the use of getmemory and show that the memory is only allocated but not deallocated.
 Since in getmemory only heap space is allocated, we also implement a new flag attribute in procent structure to note our process and set the flag. In our process execution, we set the flag. Now when  our process is about to exit, the kill system call will internally check whether the flag is set, then it will not call the freestk function to free up stack space. Thus we can consume both heap and stack space and not free heap and stack and thus see its effect on the available free memory.
