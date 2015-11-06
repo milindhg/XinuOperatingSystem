@@ -1,0 +1,21 @@
+Assignment 6.2
+
+>Problem 9.4
+Replace the low-level memory management functions with a set of functions that allocate heap and stack memory permanently (i.e., without providing a mechanism to return storage to a free list). How do the sizes of the new allocation routines compare to the sizes of getstk and getmem?
+
+We define a new system calls one called getmemory - which will only allocate memory but not pass the handler which can be used to free up the memory allocated by getmemory and another called getstack which will allocate memory for the process stack.
+We also define a new shell command called consumememory to demonstrate the use of getmemory and show that the memory is only allocated but not deallocated.
+Since in getmemory only heap space is allocated, we also implement a new flag attribute in procent structure to note our process and set the flag. In our process execution, we set the flag. Now when  our process is about to exit, the kill system call will internally check whether the flag is set, then it will not call the freestk function to free up stack space. Thus we can consume both heap and stack space and not free heap and stack and thus see its effect on the available free memory.
+
+First we execute walkfreemem command and note the current free blocks and space.
+Then we execute the consumememory to consume some memory (heap and stack)
+Then we execute walkfreemem again to note the change the available free memory.
+We can see the the avaialble memory is reduced since it is not freed up after allocation during the execution of consumememory.
+
+>>Comparison of the sizes as requested in the problem 9.4
+We compare the getstk and getstack functions and find same number of lines of code and only a difference of 8 bytes in the filesize which is because of the larger name of our function - getstack.
+We compare the getmem and getmemory functions and find same number of lines of code and only a difference of 102 bytes in the filesize which is also because of the larger file name of our function (getmemory) and the difference in the length of return statements in the two functions.
+
+Group Members: 
+Milind Gokhale - Programming the consumememory implementation.
+Renuka Deshmukh - Programming the getstack and getmemory implementation.
