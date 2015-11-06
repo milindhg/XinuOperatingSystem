@@ -10,7 +10,7 @@
  *------------------------------------------------------------------------
  */
 shellcmd xsh_consumemory(int nargs, char *args[]) {
-
+	int *heapmemvar = getmemory(sizeof(int));
 	/* Output info for '--help' argument */
 
 	if (nargs == 2 && strncmp(args[1], "--help", 7) == 0) {
@@ -38,6 +38,7 @@ shellcmd xsh_consumemory(int nargs, char *args[]) {
 		struct procent myproc = proctab[mypid];
 		myproc.nofreestkflag = 1;
 		char *value = (char)getmemory(sizeof(char));
+		kprintf("consumed memory");
 		restore(mask);		
 		return 0;
 	}
