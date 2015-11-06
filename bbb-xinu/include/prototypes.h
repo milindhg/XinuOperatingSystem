@@ -120,7 +120,7 @@ extern	pid32	getfirst(qid16);
 /* in file getmem.c */
 extern	char	*getmem(uint32);
 
-/* in file getmem.c */
+/* in file getmemory.c */
 extern	char	*getmemory(uint32);
 
 /* in file getpid.c */
@@ -131,6 +131,9 @@ extern	syscall	getprio(pid32);
 
 /* in file getstk.c */
 extern	char	*getstk(uint32);
+
+/* in file getstack.c */
+extern	char	*getstack(uint32);
 
 /* in file gettime.c */
 extern	status	gettime(uint32 *);

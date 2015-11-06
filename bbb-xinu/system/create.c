@@ -31,7 +31,8 @@ pid32	create(
 	if (ssize < MINSTK)
 		ssize = MINSTK;
 	ssize = (uint32) roundew(ssize);
-	if (((saddr = (uint32 *)getstk(ssize)) ==
+	//included call to getstack for assignment 6 problem 9.4
+	if (((saddr = (uint32 *)getstack(ssize)) ==
 	    (uint32 *)SYSERR ) ||
 	    (pid=newpid()) == SYSERR || priority < 1 ) {
 		restore(mask);

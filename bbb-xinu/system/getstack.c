@@ -1,12 +1,12 @@
-/* getstk.c - getstk */
+/* getstack.c - getstack */
 
 #include <xinu.h>
 
 /*------------------------------------------------------------------------
- *  getstk  -  Allocate stack memory, returning highest word address
+ *  getstack  -  Allocate stack memory, returning highest word address
  *------------------------------------------------------------------------
  */
-char  	*getstk(
+char  	*getstack(
 	  uint32	nbytes		/* Size of memory requested	*/
 	)
 {
